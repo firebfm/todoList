@@ -122,3 +122,15 @@ let handlers = {
         toggleCompletedPositionInput.value = '';
     }
 };
+
+let view = {
+    displayTodos: function(){
+        let todoUl = document.querySelector('ul');
+        todoUl.innerHTML = '';
+        for (var i = 0; i<todoList.todos.length; i++){
+            let todoLi = document.createElement('li');
+            todoLi.textContent = todoList.todos[i].todoText;
+            todoUl.appendChild(todoLi);
+        }
+    }
+};
