@@ -37,21 +37,51 @@ var todoList = {
     var totalTodos = this.todos.length;
     var completedTodos = 0; 
     
+    /*
     // Get number of completed todos
     for (var i = 0; i < totalTodos; i++) {
-      if (this.todos[i].completed == true)
+    if (this.todos[i].completed == true)
         completedTodos++;
     }
+    */
+    
+    this.todos.forEach(function(todo){
+        if (todo.completed === true) {
+            completedTodos++;
+        }
+    });  
+      
     // Case 1: If everything is true, make all false
     if (completedTodos == totalTodos){
-      for (var x = 0; x < totalTodos; x++)
-        this.todos[x].completed = false;
+      //for (var x = 0; x < totalTodos; x++)
+        //this.todos[x].completed = false;
+    //}
+        this.todos.forEach(function(todo){
+           todo.completed = false; 
+        });
     }
     // make everything true
     else {
-      for (var y = 0; y < totalTodos; y++)
-        this.todos[y].completed = true;
+      //for (var y = 0; y < totalTodos; y++)
+        //this.todos[y].completed = true;
+        this.todos.forEach(function(todo){
+           todo.completed = true; 
+        });
     }
+    
+    /*
+    reactoring above two foreach into one
+    this.todos.forEach(function(todo){
+        // Case 1: if everything's true, make everything false
+        if (completedTodos === totalTodos){
+            todo.completed = false;
+        }
+        // Case 2: other make everything false
+        else{
+            todo.completed = true;
+        }
+    });
+    */
     this.displayTodos();
   }
 };
